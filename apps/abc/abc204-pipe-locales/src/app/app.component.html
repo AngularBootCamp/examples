@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">
+      Sales Report:
+      <!-- French Locale -->
+      {{ reportDate | date: 'mediumDate':undefined:'fr' }}
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="number-column">Units Sold (millions)</th>
+          <th class="number-column">Total</th>
+          <th class="number-column">%</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{ record.empName }}</td>
+          <td class="number-column">
+            <!-- German Locale -->
+            {{ record.units | number: '1.4-4':'de' }}
+          </td>
+          <td class="number-column">
+            <!-- Default (US) Locale -->
+            {{ record.totalRevenue | currency }}
+          </td>
+          <td class="number-column">
+            <!-- Default (US) Locale -->
+            {{ record.percent / 100 | percent: '1.2-2' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    Report expires:
+    <!-- Russian Locale -->
+    {{ expirationDate | date: 'longDate':undefined:'ru_RU' }}
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="title-bar">
+  <span>Toppings</span>
+  <button
+    class="waves-effect waves-light btn"
+    (click)="addNewTopping()"
+  >
+    Add Topping
+  </button>
+</div>
+<div class="toppings">
+  <div class="center-align" *ngIf="!toppingControls.length">
+    No Toppings Chosen...
+  </div>
+  <div
+    *ngFor="let topping of toppingControls; index as i"
+    class="topping"
+  >
+    <div>
+      <label for="topping"> Topping #{{ i + 1 }}: </label>
+      <input
+        id="topping"
+        type="text"
+        [formControl]="topping"
+        placeholder="Add a topping"
+      />
+    </div>
+    <button (click)="removeTopping(i)">x</button>
+  </div>
+</div>

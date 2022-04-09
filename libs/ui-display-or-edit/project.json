@@ -1,0 +1,61 @@
+{
+  "prefix": "template-workspace",
+  "projectType": "library",
+  "root": "libs/ui-display-or-edit",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "e2eTestRunner": "cypress",
+      "linter": "eslint"
+    },
+    "@nrwl/angular:component": {
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint"
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:interceptor": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {},
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "libs/ui-display-or-edit/src",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui-display-or-edit/src/**/*.ts",
+          "libs/ui-display-or-edit/src/**/*.html"
+        ]
+      }
+    }
+  }
+}

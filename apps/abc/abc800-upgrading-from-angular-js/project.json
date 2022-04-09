@@ -1,0 +1,128 @@
+{
+  "projectType": "application",
+  "root": "apps/abc/abc800-upgrading-from-angular-js",
+  "schematics": {
+    "@nrwl/angular:component": {
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:interceptor": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {},
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/abc/abc800-upgrading-from-angular-js/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/abc/abc800-upgrading-from-angular-js/src/environments/environment.ts",
+              "with": "apps/abc/abc800-upgrading-from-angular-js/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/abc/abc800-upgrading-from-angular-js/src/favicon.ico",
+          "apps/abc/abc800-upgrading-from-angular-js/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/abc/shared/assets",
+            "output": "/assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/shared/assets",
+            "output": "/assets/"
+          }
+        ],
+        "index": "apps/abc/abc800-upgrading-from-angular-js/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/abc/abc800-upgrading-from-angular-js/src/main.ts",
+        "outputPath": "dist/abc800-upgrading-from-angular-js",
+        "polyfills": "apps/abc/abc800-upgrading-from-angular-js/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "apps/abc/abc800-upgrading-from-angular-js/src/styles.scss",
+          "apps/abc/shared/shared.scss",
+          "apps/shared/shared.scss"
+        ],
+        "tsConfig": "apps/abc/abc800-upgrading-from-angular-js/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "abc800-upgrading-from-angular-js:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/abc/abc800-upgrading-from-angular-js/src/**/*.ts",
+          "apps/abc/abc800-upgrading-from-angular-js/src/**/*.html"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "abc800-upgrading-from-angular-js:build:development"
+        },
+        "production": {
+          "browserTarget": "abc800-upgrading-from-angular-js:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4300,
+        "proxyConfig": "bin/proxy.conf.json"
+      }
+    }
+  }
+}

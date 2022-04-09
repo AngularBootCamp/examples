@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+.title-bar {
+  display: grid;
+  justify-content: space-between;
+  align-items: baseline;
+  grid-auto-flow: column;
+
+  margin-bottom: 10px;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  span {
+    font-size: 2rem;
+  }
+}
+
+.actions button:first-child {
+  margin-right: 10px;
+}
+
+.collapsible {
+  margin: 0;
+}
+
+.collapsible-header {
+  font-size: 1.5rem;
+}
+
+.collapsible li .collapsible-header.center-align {
+  display: block;
+}

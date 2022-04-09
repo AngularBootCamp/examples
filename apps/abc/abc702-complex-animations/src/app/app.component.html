@@ -1,0 +1,26 @@
+<header>
+  <nav>
+    <div class="nav-wrapper">
+      <ul>
+        <li routerLinkActive="green-background">
+          <a routerLink="/employee-processing">Employee Processing</a>
+        </li>
+        <li routerLinkActive="green-background">
+          <a routerLink="/silicon-wafers">Silicon Wafers</a>
+        </li>
+        <li routerLinkActive="green-background">
+          <a routerLink="/fluid-cms">Fluid CMS</a>
+        </li>
+        <li routerLinkActive="green-background">
+          <a routerLink="/static-cms">Static CMS</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div
+  [@routeChange]="outletRef?.activatedRouteData?.['name']"
+  id="router-container"
+>
+  <router-outlet #outletRef="outlet"></router-outlet>
+</div>

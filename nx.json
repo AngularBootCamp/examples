@@ -1,0 +1,47 @@
+{
+  "affected": {
+    "defaultBase": "master"
+  },
+  "cli": {
+    "analytics": false,
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
+  "defaultProject": "abc000-preparation-and-introduction",
+  "generators": {
+    "@nrwl/angular:application": {
+      "e2eTestRunner": "cypress",
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    }
+  },
+  "implicitDependencies": {
+    ".eslintrc.json": "*",
+    "jest.preset.js": "*"
+  },
+  "npmScope": "oasis",
+  "targetDependencies": {
+    "build": [
+      {
+        "projects": "dependencies",
+        "target": "build"
+      }
+    ]
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      },
+      "runner": "@nrwl/nx-cloud"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@oasis/copyright": [
+        "libs/shared-page-ui/copyright/src/index.ts"
+      ],
+      "@oasis/header": ["libs/shared-page-ui/header/src/index.ts"],
+      "@oasis/ui-display-or-edit": [
+        "libs/ui-display-or-edit/src/index.ts"
+      ]
+    }
+  }
+}

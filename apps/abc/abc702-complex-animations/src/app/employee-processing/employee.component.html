@@ -1,0 +1,19 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">
+      Employee Processing Status: {{ status }}
+    </div>
+    <ng-container *ngIf="employees | async as containerEmployees">
+      <ul class="collection" @listArrival>
+        <li
+          class="collection-item"
+          *ngFor="let e of containerEmployees"
+          [@changeStatus]="status"
+        >
+          {{ e.firstName }} {{ e.lastName }}
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+</section>
+<button (click)="statusChange()">Change Processing Status</button>

@@ -1,0 +1,128 @@
+{
+  "projectType": "application",
+  "root": "apps/abc/abc719-component-inheritance",
+  "schematics": {
+    "@nrwl/angular:component": {
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:interceptor": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {},
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/abc/abc719-component-inheritance/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/abc/abc719-component-inheritance/src/environments/environment.ts",
+              "with": "apps/abc/abc719-component-inheritance/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/abc/abc719-component-inheritance/src/favicon.ico",
+          "apps/abc/abc719-component-inheritance/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/abc/shared/assets",
+            "output": "/assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/shared/assets",
+            "output": "/assets/"
+          }
+        ],
+        "index": "apps/abc/abc719-component-inheritance/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/abc/abc719-component-inheritance/src/main.ts",
+        "outputPath": "dist/abc719-component-inheritance",
+        "polyfills": "apps/abc/abc719-component-inheritance/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "apps/abc/abc719-component-inheritance/src/styles.scss",
+          "apps/abc/shared/shared.scss",
+          "apps/shared/shared.scss"
+        ],
+        "tsConfig": "apps/abc/abc719-component-inheritance/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "abc719-component-inheritance:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/abc/abc719-component-inheritance/src/**/*.ts",
+          "apps/abc/abc719-component-inheritance/src/**/*.html"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "abc719-component-inheritance:build:development"
+        },
+        "production": {
+          "browserTarget": "abc719-component-inheritance:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4300,
+        "proxyConfig": "bin/proxy.conf.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "projectType": "application",
+  "root": "apps/abc/abc102-template-events",
+  "schematics": {
+    "@nrwl/angular:component": {
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:interceptor": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {},
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/abc/abc102-template-events/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/abc/abc102-template-events/src/environments/environment.ts",
+              "with": "apps/abc/abc102-template-events/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/abc/abc102-template-events/src/favicon.ico",
+          "apps/abc/abc102-template-events/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/abc/shared/assets",
+            "output": "/assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/shared/assets",
+            "output": "/assets/"
+          }
+        ],
+        "index": "apps/abc/abc102-template-events/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/abc/abc102-template-events/src/main.ts",
+        "outputPath": "dist/abc102-template-events",
+        "polyfills": "apps/abc/abc102-template-events/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "apps/abc/abc102-template-events/src/styles.scss",
+          "apps/abc/shared/shared.scss",
+          "apps/shared/shared.scss"
+        ],
+        "tsConfig": "apps/abc/abc102-template-events/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "abc102-template-events:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/abc/abc102-template-events/src/**/*.ts",
+          "apps/abc/abc102-template-events/src/**/*.html"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "abc102-template-events:build:development"
+        },
+        "production": {
+          "browserTarget": "abc102-template-events:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4300,
+        "proxyConfig": "bin/proxy.conf.json"
+      }
+    }
+  }
+}

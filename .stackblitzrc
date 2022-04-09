@@ -1,0 +1,4 @@
+{
+  "installDependencies": true,
+  "startCommand": "npm run nx -- serve abc101-data-binding"
+}

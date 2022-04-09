@@ -1,0 +1,128 @@
+{
+  "projectType": "application",
+  "root": "apps/abc/abc302-observables",
+  "schematics": {
+    "@nrwl/angular:component": {
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:interceptor": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {},
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/abc/abc302-observables/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/abc/abc302-observables/src/environments/environment.ts",
+              "with": "apps/abc/abc302-observables/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/abc/abc302-observables/src/favicon.ico",
+          "apps/abc/abc302-observables/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/abc/shared/assets",
+            "output": "/assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/shared/assets",
+            "output": "/assets/"
+          }
+        ],
+        "index": "apps/abc/abc302-observables/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/abc/abc302-observables/src/main.ts",
+        "outputPath": "dist/abc302-observables",
+        "polyfills": "apps/abc/abc302-observables/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "apps/abc/abc302-observables/src/styles.scss",
+          "apps/abc/shared/shared.scss",
+          "apps/shared/shared.scss"
+        ],
+        "tsConfig": "apps/abc/abc302-observables/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "abc302-observables:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/abc/abc302-observables/src/**/*.ts",
+          "apps/abc/abc302-observables/src/**/*.html"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "abc302-observables:build:development"
+        },
+        "production": {
+          "browserTarget": "abc302-observables:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4300,
+        "proxyConfig": "bin/proxy.conf.json"
+      }
+    }
+  }
+}

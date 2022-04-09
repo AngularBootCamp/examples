@@ -1,0 +1,128 @@
+{
+  "projectType": "application",
+  "root": "apps/abc/abc720-multiproviders",
+  "schematics": {
+    "@nrwl/angular:component": {
+      "skipTests": true,
+      "style": "scss"
+    },
+    "@schematics/angular:class": {
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "skipTests": true
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:interceptor": {
+      "skipTests": true
+    },
+    "@schematics/angular:module": {},
+    "@schematics/angular:pipe": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/abc/abc720-multiproviders/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/abc/abc720-multiproviders/src/environments/environment.ts",
+              "with": "apps/abc/abc720-multiproviders/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/abc/abc720-multiproviders/src/favicon.ico",
+          "apps/abc/abc720-multiproviders/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/abc/shared/assets",
+            "output": "/assets/"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/shared/assets",
+            "output": "/assets/"
+          }
+        ],
+        "index": "apps/abc/abc720-multiproviders/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/abc/abc720-multiproviders/src/main.ts",
+        "outputPath": "dist/abc720-multiproviders",
+        "polyfills": "apps/abc/abc720-multiproviders/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "apps/abc/abc720-multiproviders/src/styles.scss",
+          "apps/abc/shared/shared.scss",
+          "apps/shared/shared.scss"
+        ],
+        "tsConfig": "apps/abc/abc720-multiproviders/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "abc720-multiproviders:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/abc/abc720-multiproviders/src/**/*.ts",
+          "apps/abc/abc720-multiproviders/src/**/*.html"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "abc720-multiproviders:build:development"
+        },
+        "production": {
+          "browserTarget": "abc720-multiproviders:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4300,
+        "proxyConfig": "bin/proxy.conf.json"
+      }
+    }
+  }
+}

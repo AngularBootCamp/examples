@@ -1,0 +1,44 @@
+{
+  "extends": ["../../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "extends": [
+        "plugin:@nrwl/nx/angular",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "apps/abc/abc301-injecting-custom-services/tsconfig*.json"
+        ]
+      },
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ]
+      }
+    },
+    {
+      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "files": ["*.html"],
+      "parserOptions": {
+        "project": [
+          "apps/abc/abc301-injecting-custom-services/tsconfig*.json"
+        ]
+      },
+      "rules": {}
+    }
+  ]
+}

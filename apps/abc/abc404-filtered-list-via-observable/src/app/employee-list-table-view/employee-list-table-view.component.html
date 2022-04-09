@@ -1,0 +1,19 @@
+<table class="bordered unselectable">
+  <tr
+    *ngFor="let employee of list"
+    (click)="selectId.emit(employee.id)"
+    [style.background-color]="
+      employee.id === selectedId ? 'yellow' : ''
+    "
+  >
+    <td>
+      <a>{{ employee.firstName }}</a>
+    </td>
+    <td>
+      <a>{{ employee.lastName }}</a>
+    </td>
+    <td>
+      <a>{{ employee.hoursWorked }}</a>
+    </td>
+  </tr>
+</table>

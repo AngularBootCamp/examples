@@ -1,0 +1,21 @@
+<h4>Home</h4>
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Complete</div>
+    <todo-list
+      [list]="(done | async) ?? []"
+      [icon]="checkbox"
+      (setTaskStatus)="setStatus($event, true)"
+    ></todo-list>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">In-Progress</div>
+    <todo-list
+      [list]="(todo | async) ?? []"
+      [icon]="outline"
+      (setTaskStatus)="setStatus($event, false)"
+    ></todo-list>
+  </div>
+</div>

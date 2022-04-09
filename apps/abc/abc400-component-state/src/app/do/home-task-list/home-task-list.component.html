@@ -1,0 +1,22 @@
+<h4>Home</h4>
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Completed</div>
+    <todo-list
+      [list]="done"
+      [icon]="checkbox"
+      (toggleTask)="toggleTask($event, true)"
+    ></todo-list>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">In-Progress</div>
+    <todo-list
+      [list]="todo"
+      [icon]="outline"
+      (toggleTask)="toggleTask($event, false)"
+    ></todo-list>
+  </div>
+</section>

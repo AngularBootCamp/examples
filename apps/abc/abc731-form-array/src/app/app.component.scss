@@ -1,0 +1,24 @@
+.pizza-actions {
+  margin-bottom: 20px;
+  display: grid;
+  justify-items: right;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(1fr, 2);
+  grid-template-rows: repeat(100px, 3) 1fr;
+  row-gap: 2em;
+  column-gap: 5em;
+}
+
+app-form-toppings {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  max-width: 800px;
+  margin: auto;
+}
+
+.display-collapsible-body {
+  display: block;
+}

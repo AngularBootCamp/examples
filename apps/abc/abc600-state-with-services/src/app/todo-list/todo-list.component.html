@@ -1,0 +1,12 @@
+<ul class="collection">
+  <li
+    class="collection-item"
+    (click)="setStatus(task)"
+    *ngFor="let task of list"
+  >
+    <i class="material-icons">
+      {{ icon }}
+    </i>
+    {{ task }}
+  </li>
+</ul>

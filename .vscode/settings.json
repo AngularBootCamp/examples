@@ -1,0 +1,38 @@
+{
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "rewrap.wrappingColumn": 70,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "abccompany",
+    "bookmarkability",
+    "checkperiod",
+    "createspyobj",
+    "debounced",
+    "devmode",
+    "firestore",
+    "globby",
+    "nestjs",
+    "ngrx",
+    "nrwl",
+    "oasisdigital",
+    "octokit",
+    "Reddit",
+    "Reddits",
+    "scalability",
+    "uuidv"
+  ],
+  "IN-CLASS-files.exclude": {
+    "_tools": true,
+    ".gitattributes": true,
+    "bitbucket-pipelines.yml": true,
+    "devmode": true,
+    "SKIP-publish": true,
+    ".markdownlint.json": true
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "vsicons.presets.angular": true
+}

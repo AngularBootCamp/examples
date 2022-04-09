@@ -1,0 +1,23 @@
+<!-- templates pick up complexity to pass information back and forth -->
+<h4>Work</h4>
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">Completed</div>
+    <todo-list
+      [list]="done"
+      [icon]="checkbox"
+      (toggleTask)="toggle($event, true)"
+    ></todo-list>
+  </div>
+</section>
+
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">In-Progress</div>
+    <todo-list
+      [list]="todo"
+      [icon]="outline"
+      (toggleTask)="toggle($event, false)"
+    ></todo-list>
+  </div>
+</section>

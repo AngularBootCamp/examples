@@ -1,0 +1,86 @@
+<section>
+  <div class="title-bar">
+    <h1>Pizza Creator</h1>
+    <div class="actions">
+      <button
+        class="waves-effect waves-light btn orange lighten-1"
+        (click)="logForm()"
+      >
+        Log Form
+      </button>
+      <button
+        class="waves-effect waves-light btn"
+        (click)="addNewPizza()"
+      >
+        Add New Pizza
+      </button>
+    </div>
+  </div>
+  <ul class="collapsible">
+    <li *ngIf="!pizzaFormGroups.length">
+      <div class="collapsible-header center-align">
+        Add a Pizza to Continue!
+      </div>
+    </li>
+    <li *ngFor="let form of pizzaFormGroups; index as i">
+      <div class="collapsible-header" (click)="setActivePizzaForm(i)">
+        Pizza #{{ i + 1 }}
+      </div>
+      <div
+        class="collapsible-body"
+        [class.display-collapsible-body]="activePizza === i"
+      >
+        <div class="pizza-actions">
+          <button
+            class="waves-effect waves-light btn red lighten-1"
+            (click)="removePizza(i)"
+          >
+            Remove Pizza
+          </button>
+        </div>
+
+        <form [formGroup]="form">
+          <app-form-select
+            label="Size"
+            [control]="getFormControlFromForm(form, 'size')"
+            [options]="sizes"
+          ></app-form-select>
+
+          <app-form-select
+            label="Crust"
+            [control]="getFormControlFromForm(form, 'crust')"
+            [options]="crusts"
+          ></app-form-select>
+
+          <app-form-select
+            label="Sauce Type"
+            [control]="getFormControlFromForm(form, 'sauceType')"
+            [options]="sauceTypes"
+          ></app-form-select>
+
+          <app-form-select
+            label="Sauce Amount"
+            [control]="getFormControlFromForm(form, 'sauceAmount')"
+            [options]="sauceAmounts"
+          ></app-form-select>
+
+          <app-form-select
+            label="Cheese Type"
+            [control]="getFormControlFromForm(form, 'cheeseType')"
+            [options]="cheeseTypes"
+          ></app-form-select>
+
+          <app-form-select
+            label="Cheese Amount"
+            [control]="getFormControlFromForm(form, 'cheeseAmount')"
+            [options]="cheeseAmounts"
+          ></app-form-select>
+
+          <app-form-toppings
+            [toppings]="getToppingArrayFromForm(form)"
+          ></app-form-toppings>
+        </form>
+      </div>
+    </li>
+  </ul>
+</section>
